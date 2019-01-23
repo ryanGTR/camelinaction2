@@ -9,7 +9,7 @@ public class FileCopierWithCamel {
     public static void main(String args[]) throws Exception {
         // create CamelContext
         CamelContext context = new DefaultCamelContext();
-
+        System.out.println("Context add route");
         // add our route to the CamelContext
         context.addRoutes(new RouteBuilder() {
             public void configure() {
@@ -18,11 +18,13 @@ public class FileCopierWithCamel {
         });
 
         // start the route and let it do its work
+        System.out.println("Context Start");
         context.start();
         Thread.sleep(10000);
 
         // stop the CamelContext
         context.stop();
+        System.out.println("Context Stop");
     }
 
 }
